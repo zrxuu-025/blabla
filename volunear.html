@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DayaMaju V5 - Platform Pemberdayaan Masyarakat (Final)</title>
+    <!-- Memuat Tailwind CSS melalui CDN Resmi -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Memuat FontAwesome untuk icon-icon estetis -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .feature-content { display: none; }
+        .feature-content.active { display: block; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="bg-teal-700 text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-white p-2 rounded-lg text-teal-700 font-bold text-xl shadow-inner">
+                        <i class="fa-solid fa-users-gear"></i>
+                    </div>
+                    <div>
+                        <span class="font-extrabold text-xl tracking-tight block">DayaMaju</span>
+                        <span class="text-xs text-teal-200 block -mt-1">Poltekesos Bandung</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-6 font-medium">
+                    <a href="#beranda" class="hover:text-teal-200 transition-colors">Beranda</a>
+                    <a href="#tahapan" class="hover:text-teal-200 transition-colors">Tahapan Pokok</a>
+                    <a href="#fitur-baru" class="hover:text-teal-200 transition-colors">Fitur Aksi Sosial</a>
+                    <a href="#simulasi" class="hover:text-teal-200 transition-colors">Simulasi</a>
+                    <a href="#pengaduan" class="hover:text-teal-200 transition-colors">Pojok Aspirasi</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white hover:text-teal-200 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-teal-800 px-4 pt-2 pb-4 space-y-2">
+            <a href="#beranda" class="block py-2 text-white hover:text-teal-200">Beranda</a>
+            <a href="#tahapan" class="block py-2 text-white hover:text-teal-200">Tahapan Pokok</a>
+            <a href="#fitur-baru" class="block py-2 text-white hover:text-teal-200">Fitur Aksi Sosial</a>
+            <a href="#simulasi" class="block py-2 text-white hover:text-teal-200">Simulasi</a>
+            <a href="#pengaduan" class="block py-2 text-white hover:text-teal-200">Pojok Aspirasi</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="beranda" class="bg-gradient-to-r from-teal-700 via-teal-600 to-emerald-600 text-white py-20 px-4 shadow-inner relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <span class="bg-teal-500/30 text-teal-100 font-semibold px-4 py-1.5 rounded-full text-sm tracking-wide uppercase border border-teal-400/20">
+                Media Penyuluhan & Aplikasi Manajemen Sosial
+            </span>
+            <h1 class="text-4xl md:text-5xl font-black mt-6 tracking-tight leading-tight">
+                Membangun Kemandirian Melalui <br><span class="text-emerald-300">Pemberdayaan Masyarakat</span>
+            </h1>
+            <p class="mt-6 text-lg text-teal-100 max-w-2xl mx-auto leading-relaxed">
+                Platform digital edukasi interaktif untuk merancang, memetakan, dan mengeksplorasi siklus intervensi komunitas secara partisipatif dan berkelanjutan.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <!-- AKTIF: Mengarah langsung ke bagian fitur baru -->
+                <a href="#fitur-baru" class="bg-white text-teal-700 font-bold px-8 py-3.5 rounded-xl shadow-lg hover:bg-teal-50 transition-all text-center">
+                    Coba Fitur Aksi Sosial <i class="fa-solid fa-circle-play ml-2"></i>
+                </a>
+                <!-- AKTIF: Membuka Modul Utama Acuan -->
+                <button onclick="panggilModul('materi-1')" class="border-2 border-white/40 text-white font-semibold px-8 py-3.5 rounded-xl hover:bg-white/10 transition-all text-center backdrop-blur-sm cursor-pointer">
+                    <i class="fa-solid fa-book-open mr-2"></i> Buka Modul Acuan
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- TAHAPAN PEMBERDAYAAN -->
+    <section id="tahapan" class="max-w-6xl mx-auto px-4 py-16">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Siklus & Tahapan Intervensi</h2>
+            <p class="text-slate-600 mt-2">Klik pada setiap tab di bawah ini untuk mempelajari langkah demi langkah metode pemberdayaan masyarakat.</p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-2 mb-8 bg-slate-200/60 p-2 rounded-2xl max-w-3xl mx-auto">
+            <button onclick="switchTab(event, 'tab-persiapan')" class="tab-btn px-5 py-3 rounded-xl font-bold text-sm transition-all text-teal-700 bg-white shadow-sm flex items-center gap-2">
+                <i class="fa-solid fa-clipboard-list"></i> 1. Persiapan & Assesmen
+            </button>
+            <button onclick="switchTab(event, 'tab-perencanaan')" class="tab-btn px-5 py-3 rounded-xl font-bold text-sm transition-all text-slate-600 hover:bg-white/50 flex items-center gap-2">
+                <i class="fa-solid fa-map"></i> 2. Perencanaan
+            </button>
+            <button onclick="switchTab(event, 'tab-pelaksanaan')" class="tab-btn px-5 py-3 rounded-xl font-bold text-sm transition-all text-slate-600 hover:bg-white/50 flex items-center gap-2">
+                <i class="fa-solid fa-rocket"></i> 3. Pelaksanaan
+            </button>
+            <button onclick="switchTab(event, 'tab-evaluasi')" class="tab-btn px-5 py-3 rounded-xl font-bold text-sm transition-all text-slate-600 hover:bg-white/50 flex items-center gap-2">
+                <i class="fa-solid fa-chart-line"></i> 4. Evaluasi & Terminasi
+            </button>
+        </div>
+
+        <div class="bg-white border border-slate-100 rounded-3xl p-6 md:p-10 shadow-xl max-w-4xl mx-auto">
+            <!-- Tab Contents -->
+            <div id="tab-persiapan" class="tab-content active space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-2xl font-bold text-slate-800">Tahap Persiapan & Assessment</h3>
+                    <!-- AKTIF: Mengakses Modul Persiapan -->
+                    <button onclick="panggilModul('materi-1')" class="text-xs bg-teal-600 text-white px-3 py-1.5 rounded-lg font-bold hover:bg-teal-700 transition-all cursor-pointer">Baca Modul &rarr;</button>
+                </div>
+                <p class="text-slate-600 leading-relaxed">Melakukan pendekatan awal melalui <strong>Social Mapping (Pemetaan Sosial)</strong> untuk mengidentifikasi profil, potensi lokal, serta kerentanan struktural masyarakat secara inklusif.</p>
+            </div>
+            <div id="tab-perencanaan" class="tab-content space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-2xl font-bold text-slate-800">Tahap Perencanaan Partisipatif</h3>
+                    <!-- AKTIF: Mengakses Modul Perencanaan -->
+                    <button onclick="panggilModul('materi-2')" class="text-xs bg-teal-600 text-white px-3 py-1.5 rounded-lg font-bold hover:bg-teal-700 transition-all cursor-pointer">Baca Modul &rarr;</button>
+                </div>
+                <p class="text-slate-600 leading-relaxed">Merumuskan strategi pemecahan masalah bersama warga secara <strong>bottom-up</strong> serta menyusun kepengurusan Kelompok Swadaya Masyarakat (KSM).</p>
+            </div>
+            <div id="tab-pelaksanaan" class="tab-content space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-2xl font-bold text-slate-800">Tahap Pelaksanaan & Aksi Nyata</h3>
+                    <!-- AKTIF: Mengakses Modul Pelaksanaan -->
+                    <button onclick="panggilModul('materi-3')" class="text-xs bg-teal-600 text-white px-3 py-1.5 rounded-lg font-bold hover:bg-teal-700 transition-all cursor-pointer">Baca Modul &rarr;</button>
+                </div>
+                <p class="text-slate-600 leading-relaxed">Mengimplementasikan program kerja seperti pelatihan vokasional, pendampingan usaha mikro, atau penguatan sarana komunitas binaan pekerja sosial.</p>
+            </div>
+            <div id="tab-evaluasi" class="tab-content space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-2xl font-bold text-slate-800">Tahap Evaluasi & Terminasi</h3>
+                    <!-- AKTIF: Mengakses Modul Evaluasi & Terminasi -->
+                    <button onclick="panggilModul('materi-4')" class="text-xs bg-teal-600 text-white px-3 py-1.5 rounded-lg font-bold hover:bg-teal-700 transition-all cursor-pointer">Baca Modul &rarr;</button>
+                </div>
+                <p class="text-slate-600 leading-relaxed">Mengukur indikator dampak keberhasilan program dan melakukan pemandirian (terminasi) agar masyarakat dapat mengelola program secara independen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FITUR AKSI SOSIAL (VOLUNTEER, DONASI, COMMUNITY HUB) -->
+    <section id="fitur-baru" class="bg-slate-900 text-white py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-xs bg-emerald-500 text-slate-950 font-black px-3 py-1 rounded-full uppercase tracking-wider">Ekstensi Fitur Baru</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mt-3 tracking-tight">Pusat Intervensi & Aksi Sosial Publik</h2>
+                <p class="text-slate-400 mt-2 max-w-xl mx-auto text-sm md:text-base">Eksplorasi tiga pilar ekosistem sosial digital terpadu untuk mengakselerasi tingkat keberdayaan masyarakat lokal.</p>
+            </div>
+
+            <!-- Tombol Menu Switcher 3 Fitur Baru -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-10">
+                <button onclick="switchFeature(event, 'feat-volunteer')" class="feat-btn p-5 rounded-2xl border-2 border-emerald-500 bg-emerald-500/10 text-emerald-400 font-bold text-left transition-all flex items-center space-x-4 cursor-pointer">
+                    <span class="text-2xl p-3 bg-emerald-500 text-slate-950 rounded-xl"><i class="fa-solid fa-hands-holding-child"></i></span>
+                    <div>
+                        <span class="block text-white text-lg">1. Volunteer Finder</span>
+                        <span class="block text-xs font-normal text-slate-400 mt-0.5">Cari aksi kerelawanan terdekat</span>
+                    </div>
+                </button>
+
+                <button onclick="switchFeature(event, 'feat-donation')" class="feat-btn p-5 rounded-2xl border-2 border-slate-800 bg-slate-800/40 text-slate-400 font-bold text-left transition-all flex items-center space-x-4 cursor-pointer hover:border-slate-700">
+                    <span class="text-2xl p-3 bg-slate-800 text-emerald-400 rounded-xl"><i class="fa-solid fa-hand-holding-heart"></i></span>
+                    <div>
+                        <span class="block text-white text-lg">2. Donation & Request</span>
+                        <span class="block text-xs font-normal text-slate-400 mt-0.5">Buka donasi & ajukan bantuan</span>
+                    </div>
+                </button>
+
+                <button onclick="switchFeature(event, 'feat-community')" class="feat-btn p-5 rounded-2xl border-2 border-slate-800 bg-slate-800/40 text-slate-400 font-bold text-left transition-all flex items-center space-x-4 cursor-pointer hover:border-slate-700">
+                    <span class="text-2xl p-3 bg-slate-800 text-emerald-400 rounded-xl"><i class="fa-solid fa-circle-nodes"></i></span>
+                    <div>
+                        <span class="block text-white text-lg">3. Community Hub</span>
+                        <span class="block text-xs font-normal text-slate-400 mt-0.5">Wadah profil & update komunitas</span>
+                    </div>
+                </button>
+            </div>
+
+            <!-- KONTEN FITUR 1: VOLUNTEER FINDER -->
+            <div id="feat-volunteer" class="feature-content active bg-slate-800/60 border border-slate-800 rounded-3xl p-6 md:p-8 max-w-5xl mx-auto">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-700/60 pb-6 mb-6">
+                    <div>
+                        <h3 class="text-2xl font-bold flex items-center gap-2 text-emerald-400"><i class="fa-solid fa-magnifying-glass-location"></i> Volunteer Finder Portal</h3>
+                        <p class="text-slate-400 text-xs md:text-sm mt-1">Fungsi: Menyediakan kluster aksi kemitraan bagi masyarakat umum.</p>
+                    </div>
+                </div>
+                <!-- Grid Kartu Kegiatan -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-700/40 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] bg-amber-500/10 text-amber-400 px-2.5 py-1 rounded-md font-bold uppercase border border-amber-500/20">Pendidikan</span>
+                            <h4 class="font-bold text-base mt-2.5 text-slate-100">Mengajar Anak Jalanan</h4>
+                            <p class="text-xs text-slate-400 mt-1.5"><i class="fa-solid fa-map-marker-alt mr-1"></i> Rumah Singgah, Cicadas</p>
+                        </div>
+                        <!-- AKTIF: Membuka info detail kegiatan -->
+                        <button onclick="panggilModul('vol-mengajar')" class="w-full mt-4 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs py-2 rounded-xl transition-all cursor-pointer">Buka Detail Modul Aksi</button>
+                    </div>
+                    <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-700/40 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] bg-blue-500/10 text-blue-400 px-2.5 py-1 rounded-md font-bold uppercase border border-blue-500/20">Lingkungan</span>
+                            <h4 class="font-bold text-base mt-2.5 text-slate-100">Bersih Lingkungan Hidup</h4>
+                            <p class="text-xs text-slate-400 mt-1.5"><i class="fa-solid fa-map-marker-alt mr-1"></i> Cikapundung, Bandung</p>
+                        </div>
+                        <!-- AKTIF: Membuka info detail kegiatan -->
+                        <button onclick="panggilModul('vol-bersih')" class="w-full mt-4 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs py-2 rounded-xl transition-all cursor-pointer">Buka Detail Modul Aksi</button>
+                    </div>
+                    <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-700/40 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] bg-rose-500/10 text-rose-400 px-2.5 py-1 rounded-md font-bold uppercase border border-rose-500/20">Kesehatan</span>
+                            <h4 class="font-bold text-base mt-2.5 text-slate-100">Donor Darah Massal</h4>
+                            <p class="text-xs text-slate-400 mt-1.5"><i class="fa-solid fa-map-marker-alt mr-1"></i> Aula GOR Poltekesos</p>
+                        </div>
+                        <!-- AKTIF: Membuka info detail kegiatan -->
+                        <button onclick="panggilModul('vol-darah')" class="w-full mt-4 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs py-2 rounded-xl transition-all cursor-pointer">Buka Detail Modul Aksi</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KONTEN FITUR 2: DONATION & HELP REQUEST -->
+            <div id="feat-donation" class="feature-content bg-slate-800/60 border border-slate-800 rounded-3xl p-6 md:p-8 max-w-5xl mx-auto">
+                <div class="border-b border-slate-700/60 pb-6 mb-6">
+                    <h3 class="text-2xl font-bold flex items-center gap-2 text-emerald-400"><i class="fa-solid fa-hand-holding-heart"></i> Donation & Help Request Portal</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-sm text-slate-300 border-l-2 border-emerald-500 pl-2 uppercase tracking-wider">Kampanye Penyaluran Donasi</h4>
+                        <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700/30 space-y-2">
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-200">Bantuan Sembako Warga Lansia</span>
+                                <span class="text-emerald-400 font-mono">75% Terpenuhi</span>
+                            </div>
+                            <!-- AKTIF: Membuka rincian kebutuhan donasi -->
+                            <button onclick="panggilModul('don-sembako')" class="w-full bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 py-1.5 text-xs rounded-lg transition-all font-semibold cursor-pointer">Lihat Rincian Kebutuhan &rarr;</button>
+                        </div>
+                        <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700/30 space-y-2">
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-200">Paket Buku Sekolah & Pakaian Layak</span>
+                                <span class="text-emerald-400 font-mono">64% Terpenuhi</span>
+                            </div>
+                            <!-- AKTIF: Membuka rincian kebutuhan donasi -->
+                            <button onclick="panggilModul('don-buku')" class="w-full bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 py-1.5 text-xs rounded-lg transition-all font-semibold cursor-pointer">Lihat Rincian Kebutuhan &rarr;</button>
+                        </div>
+                    </div>
+                    <!-- Form Request Mandiri -->
+                    <div class="bg-slate-900/40 p-5 rounded-2xl border border-slate-700/40 space-y-3">
+                        <h4 class="font-bold text-sm text-slate-200"><i class="fa-solid fa-file-invoice"></i> Formulir Pengajuan Bantuan Medis</h4>
+                        <form onsubmit="handleMintaBantuan(event)" class="space-y-2 text-xs">
+                            <input type="text" id="req-nama" required placeholder="Nama Pemohon / Wilayah" class="w-full p-2.5 bg-slate-800 rounded-lg border border-slate-700 text-white focus:outline-none focus:border-emerald-500">
+                            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold py-2 rounded-lg transition-all cursor-pointer">Ajukan Kebutuhan Sembako/Medis</button>
+                        </form>
+                    </div>
